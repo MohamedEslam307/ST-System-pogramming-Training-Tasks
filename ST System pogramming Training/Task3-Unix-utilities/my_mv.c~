@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+int main(int argc, char **argv){
+	if (1==argc){
+		printf("missing source and destination file operands\n");
+		return -1;
+	}else if(2==argc){
+		printf("missing destination file operand");
+		return -2;
+	}else if(3==argc){
+		int ret = 0;
+		ret =  rename(argv[2],argv[3]);
+		if (0==ret)
+			{
+				return 0;
+			}
+		else{
+			printf("Faild to moving file\n");
+			return -3;
+		}
+	}else{
+		printf("Too much arguments");
+                return -4;
+	}
+}
